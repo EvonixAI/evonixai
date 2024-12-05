@@ -1,0 +1,125 @@
+---
+layout: page
+title: StarForge AI | Home
+---
+
+<head>
+  <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<section class="hero">
+  <h1>
+    Custom <span class="highlight">AI Solutions</span> for
+    <span class="highlight">Your Business</span>
+  </h1>
+  <h2>Unlock efficiency, scale operations, and drive growth.</h2>
+
+  <div class="actions">
+    <a class="talk" href="/">Let's Talk</a>
+    <a class="services" href="#services">
+      Our Services <img src="./assets/img/icons/arrow.svg"></img>
+    </a>
+  </div>
+</section>
+
+<section class="services" id="services" style="scroll-margin-top: 70px;">
+  <h1>Our <span class="highlight">AI Solutions</span></h1>
+
+  <ul id="services-list"></ul>
+  <p id="service-desc"></p>
+</section>
+
+<script>
+  const services = {'Social Media': `social`, 'Chatbots': `At Starforge AI, we create intelligent, conversational chatbots and virtual assistants using advanced platforms like Botpress and Voiceflow. Our solutions deliver 24/7 customer support, seamlessly handle FAQs, streamline operations, and significantly reduce costs—all while enhancing your customer experience.
+  <br /> <br />
+  We ensure every chatbot is rigorously tested to minimize errors, reduce AI hallucinations, and maximize efficiency, delivering high-performance tools tailored to your business needs.
+  <br /> <br />
+  Seamless Integration with Popular Platforms:
+  <br />
+  - WhatsApp <br />
+  - WordPress <br />
+  - Email <br />
+  - Telegram <br />
+  - Instagram <br />
+  - …and more! <br /><br />
+  Transform how your business connects with customers—fast, reliable, and always available.`, 'Data Analysis': 'lorem ipsum dolor', 'Custom AI': 'lorem ipsum dolor'};
+
+  window.onload = () => {
+    const list = document.getElementById("services-list");
+    Object.keys(services).forEach((key, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = key;
+      li.classList.add("service");
+
+      li.id = key;
+
+      if (index === 0) {
+        li.classList.add("active");
+        document.getElementById("service-desc").innerHTML = services[key];
+      }
+
+      li.addEventListener("click", (e) => {
+        list.querySelectorAll(".service").forEach((service) => {
+          service.classList.remove("active");
+        });
+
+        e.currentTarget.classList.add("active");
+        document.getElementById("service-desc").innerHTML = services[e.target.id];
+
+        setUnderline(e.target);
+      });
+
+      list.appendChild(li);
+    });
+
+    const underline = document.createElement("div");
+    underline.classList.add("underline");
+    list.appendChild(underline);
+
+    const setUnderline = (element) => {
+      underline.style.width = `${element.offsetWidth + 1}px`;
+      underline.style.left = `${element.offsetLeft}px`;
+    };
+
+    const activeItem = document.querySelector('.active');
+    if (activeItem) {
+      setUnderline(activeItem);
+    }
+  }
+</script>
+
+<section class="benefits">
+  <h1>What <span class="highlight">You Get</span></h1>
+
+  <div class="card card-1">
+    <h1>Saved Time</h1>
+    <p>Transform the way your team works with our AI-powered automation solutions. By eliminating repetitive, time-intensive tasks, our systems free up your team's energy for strategic, high-impact initiatives.</p>
+  </div>
+  <div class="card card-2">
+    <h1>Reduced Costs</h1>
+    <p>Automating workflows lowers operational costs by reducing the need for manual labor and optimizing resource allocation. With fewer repetitive tasks, your team can achieve more without hiring additional staff, saving money while improving efficiency.</p>
+  </div>
+  <div class="card card-3">
+    <h1>Effortless Scalability</h1>
+    <p>As your business grows, managing increasing workloads becomes a challenge. AI solutions are designed to scale effortlessly, handling higher volumes of data or tasks without compromising efficiency. This flexibility ensures your business stays competitive and ready to adapt.</p>
+  </div>
+</section>
+
+<section class="blogs">
+  <h1>Our <span class="highlight">Blogs</span></h1>
+
+  {% for post in site.posts %}
+    <div class="blog">
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      <p>{{ post.description }}</p>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="cta">
+  <h1>Ready to <span class="highlight">Transform</span> Your <span class="highlight">Business</span> with AI?</h1>
+
+  <div class="actions">
+    <a class="talk" href="/">Let's Talk</a>
+  </div>
+</section>
