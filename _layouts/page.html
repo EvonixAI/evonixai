@@ -22,6 +22,9 @@
       *::before {
         box-sizing: border-box;
       }
+      img {
+        user-select: none;
+      }
       html,
       body {
         min-height: 100%;
@@ -33,14 +36,27 @@
         background-color: #f4f4f4;
         margin: 0;
         font-family: "Montserrat", sans-serif;
+        background: radial-gradient(circle, #5c2d91, #0d2b45);
+        background-attachment: fixed;
+        background-size: cover;
+        cursor: url("/assets/cursors/default.svg"), auto;
+      }
+      a {
+        cursor: url("/assets/cursors/pointer.svg"), auto !important;
+      }
+      section {
+        background: transparent;
+        height: calc(100vh - 80px);
+      }
+      * {
+        color: #eaeaea;
       }
 
       nav {
         z-index: 99;
-        background-color: #f5f5f5;
-        border-bottom: 1px solid #e0e0e0;
+        background-color: #30336b;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        padding: 4px 1.3rem;
+        padding: 4px 8rem;
         height: 80px;
         display: flex;
         align-items: center;
@@ -54,35 +70,197 @@
       nav .logo {
         width: 230px;
         height: 30px;
-        cursor: pointer;
+        vertical-align: middle;
       }
       nav .menu {
         width: 32px;
         height: 32px;
         cursor: pointer;
+        display: none;
+      }
+      nav .links {
+        display: flex;
+        list-style: none;
+      }
+      nav .links li {
+        margin: 0 10px;
+      }
+      nav a {
+        text-underline-offset: 8px;
+        text-decoration: none;
+        color: #eaeaea;
+        display: block;
+        text-align: center;
+      }
+      nav a.active {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        margin-top: 28px;
+        height: 250px;
+        background-color: #e0e0e0;
+        border-top: 2px solid #e0e0e0;
+        position: relative;
+      }
+      footer .links {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+      }
+      footer .links a {
+        color: #333;
+        text-decoration: none;
+      }
+      footer .links a:hover {
+        text-decoration: underline;
+      }
+      footer .copyright {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px;
+      }
+
+      @media screen and (max-width: 1035px) {
+        nav {
+          padding: 4px 24px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .menu {
+          display: block !important;
+        }
+
+        nav .links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          left: 0;
+          background-color: #3f4389;
+          width: 100%;
+          padding: 1rem;
+        }
+
+        nav ul.active {
+          display: flex;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        nav .links li {
+          margin: 10px 0;
+        }
+      }
+      @media screen and (max-width: 360px) {
+        nav .logo {
+          width: 180px;
+          height: 24px;
+        }
       }
 
       footer {
         margin-top: 28px;
         height: 250px;
-        background-color: #f5f5f5;
-        border-top: 2px solid #e0e0e0;      
+        background-color: #e0e0e0;
+        border-top: 2px solid #e0e0e0;
+        position: relative;
+      }
+      footer .copyright {
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        margin: 0;
+        color: #333;
+      }
+      footer h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      footer .links {
+        height: 100%;
+        margin-top: -12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      footer .links a {
+        text-decoration: none;
+        color: #6e6e6e;
+        font-size: 20px;
+      }
+      footer .links a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <nav>
-      <a href="/"
+      <a style="display: block; height: auto" href="/"
         ><img src="/assets/img/STARFORGE AI.svg" alt="Logo" class="logo"
       /></a>
-      <img src="/assets/img/icons/menu.svg" alt="Logo" class="menu" />
+      <img src="/assets/img/icons/menu.svg" alt="Logo" class="menu" id="menu" />
+
+      <ul class="links" id="nav-links">
+        <li>
+          <a class="{% if page.url == '/' %}active{% endif %}" href="/">Home</a>
+        </li>
+        <li>
+          <a
+            class="{% if page.url == '/about/' %}active{% endif %}"
+            href="/about"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            class="{% if page.url == '/services/' %}active{% endif %}"
+            href="/services"
+            >Services</a
+          >
+        </li>
+        <li>
+          <a
+            class="{% if page.url == '/contact/' %}active{% endif %}"
+            href="/contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
     </nav>
+
+    <script>
+      const menuIcon = document.getElementById("menu");
+      const navLinks = document.getElementById("nav-links");
+
+      menuIcon.addEventListener("click", () => {
+        navLinks.classList.toggle("active"); // Toggle the 'active' class
+      });
+    </script>
 
     {{content}}
 
-    <footer>
-      &#169 StarForge AI <span id="year"></span>. All Rights Reserved.
-    </footer>
+    <!-- <footer>
+      <div class="links">
+        <h1>Quick Links</h1>
+
+        <a href="/">Home</a>
+        <a href="/blogs">Blogs</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+
+      <p class="copyright">&#169 StarForge AI <span id="year"></span>. All Rights Reserved.</p>
+    </footer> -->
 
     <script>
       document.getElementById("year").innerHTML = new Date().getFullYear();

@@ -1,54 +1,74 @@
-nav {
-  z-index: 99;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  padding: 4px 1.3rem;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-nav .logo {
-  width: 230px;
-  height: 30px;
-  cursor: pointer;
-}
-nav .menu {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
+* {
+  scroll-behavior: smooth;
 }
 h1,
 h2 {
   max-width: 100%;
 }
 h1 {
-  color: #333333;
+  color: #eaeaea;
+}
+body {
+  overflow: hidden;
+}
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
 }
 section {
-  padding: 8px 2rem;
+  scroll-snap-align: center;
+}
+section {
+  display: grid;
+  place-items: center;
+  max-width: calc(1200px - 60px);
+  margin-right: auto;
+  margin-left: auto;
 }
 section h1 {
   font-weight: 600;
-  font-size: 30px;
-  width: 320px;
+  font-size: 50px;
   margin-bottom: 0;
+  margin-top: 0;
 }
 section h1 .highlight {
-  color: #4a6c8a;
+  color: #699cc9;
 }
 .hero h2 {
   margin-top: 4px;
-  color: #6e6e6e;
-  font-size: 16px;
+  color: #c0c0c0;
+  font-size: 18px;
   font-weight: 500;
   width: 320px;
+}
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.hero .imgs {
+  position: relative;
+  width: 420px;
+  height: 460px;
+  flex-shrink: 0;
+}
+.hero .gif-one {
+  width: 300px;
+  height: 275px;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  top: 24px;
+}
+.hero .gif-two {
+  width: 300px;
+  height: 275px;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  position: absolute;
 }
 .actions {
   display: flex;
@@ -59,34 +79,33 @@ section h1 .highlight {
   text-decoration: none;
   color: #ffffff;
   padding: 0.5rem 1.6rem;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   display: block;
   border-radius: 4px;
 }
 .actions .talk {
-  background-color: #4d7497;
-  border: 1.5px solid #4d7497;
-  transition: 0.35s;
+  background-color: #5e8db6;
+  border: 1.5px solid #5e8db6;
+  transition: 0.35s ease-in-out opacity;
 }
 .actions .services {
   position: relative;
-  border: 1.5px solid #4d7497;
-  color: #545454;
+  border: 1.5px solid #6b6bbb;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
 }
 .actions .services::after {
-  z-index: -99;
+  z-index: -1;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   content: "";
   height: 0;
-  background-color: #4d7497;
+  background-color: #6b6bbb;
   transition: 0.25s;
 }
 .actions .services img {
@@ -102,63 +121,93 @@ section h1 .highlight {
 .actions .services:hover {
   color: #ffffff;
 }
-.actions .services:hover img {
-  filter: invert(100%);
+section.services {
+  padding: 0 2rem;
+  width: 100%;
+}
+.services-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.services-container {
+  display: flex;
+  flex-direction: column;
+}
+.services-container h1 {
+  flex: 0.5;
+}
+.services-wrapper {
+  flex: 0.5;
 }
 #services-list {
+  height: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 6px;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 4px;
   position: relative;
+  justify-content: center;
+  flex: 0.1;
+  border-right: 1px solid #7d7d7d;
+  padding-right: 2rem;
+}
+#service-desc {
+  flex: 0.9;
+  font-size: 18px;
+  padding-left: 2rem;
 }
 #services-list .service {
-  color: #696969;
+  color: #c0c0c0;
   white-space: nowrap;
-  cursor: pointer;
+  cursor: url("/assets/cursors/pointer.svg"), auto !important;
   transition: 0.25s;
   font-weight: 500;
+  padding-bottom: 22px;
+  font-size: 18px;
 }
 #services-list .active,
 #services-list .service:hover {
-  color: #000000;
+  color: #fff;
 }
 #services-list .active {
   transition: none;
 }
-/* #service-desc {
-  background-color: #f4f4f4;
-  border: 1px solid #929292;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  padding: 14px 22px;
-  border-radius: 6px;
-} */
+.services .qdesc {
+  margin: 0;
+  color: #c0c0c0;
+  white-space: normal;
+  font-size: 14px;
+}
 .underline {
+  left: -12px;
   position: absolute;
-  bottom: 0;
-  height: 2px;
-  background: #000;
-  width: 5px;
+  height: 12px;
+  background: #fff;
+  width: 4px;
   transition: all 0.3s ease;
 }
 
+.benefits-wrapper {
+  max-width: 1200px;
+}
 .benefits h1 {
   margin-bottom: 25px;
 }
+.cards-wrapper {
+  display: flex;
+  gap: 1rem;
+}
 .card {
-  width: 100%;
-  background-color: #f4f4f4;
-  position: sticky;
-  top: 100px;
+  width: 330px;
+  background-color: #43487b;
   margin-bottom: 24px;
-  padding: 14px 22px;
-  border: 1px solid #929292;
+  padding: 18px 22px;
+  padding-bottom: 22px;
   border-radius: 4px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
@@ -168,11 +217,11 @@ section h1 .highlight {
 }
 .card h1 {
   margin-bottom: 4px;
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 700;
 }
 .card p {
-  font-size: 14px;
+  font-size: 18px;
 }
 .card-1 {
   z-index: 1;
@@ -184,14 +233,31 @@ section h1 .highlight {
   z-index: 3;
 }
 
+.blogs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+}
 .blog {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #333;
   width: 100%;
-  background-color: #f4f4f4;
-  padding: 14px 22px;
-  border: 1px solid #929292;
+  background-color: #43487b;
+  padding: 12px 22px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
   cursor: pointer;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.25s opacity;
+}
+.blog:hover {
+  opacity: 0.8;
 }
 .blog * {
   margin-top: 0;
@@ -199,8 +265,11 @@ section h1 .highlight {
 }
 .blog h1 {
   margin-bottom: 8px;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 700;
+}
+.blog p {
+  font-size: 20px;
 }
 .blog a {
   text-decoration: none;
@@ -208,14 +277,243 @@ section h1 .highlight {
 }
 
 .cta {
+  padding: 0 2rem;
   text-align: center;
+  position: relative;
 }
 .cta h1 {
   text-align: center;
   width: 100%;
 }
 .cta .actions {
-  margin-top: 14px;
+  margin-top: 28px;
   display: grid;
   place-items: center;
+}
+.cta .talk {
+  font-size: 30px;
+  padding: 8px 24px;
+}
+.cta .up {
+  position: absolute;
+  bottom: 28px;
+  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78px;
+  cursor: url("/assets/cursors/pointer.svg"), pointer;
+  transition: 0.25s;
+}
+.cta .up:hover {
+  opacity: 0.7;
+  bottom: 38px;
+}
+
+.hero div {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .hero .imgs {
+    width: 320px;
+    height: 360px;
+  }
+  .hero .gif-one {
+    width: 200px;
+    height: 225px;
+  }
+  .hero .gif-two {
+    width: 200px;
+    height: 225px;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .benefits-wrapper {
+    width: calc(100vw - 70px);
+  }
+  .blogs > div {
+    width: calc(100vw - 70px) !important;
+  }
+  .blog {
+    width: calc(100vw - 70px);
+  }
+}
+@media screen and (max-width: 1030px) {
+  .hero {
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .hero .imgs {
+    width: 220px;
+    height: 320px;
+  }
+  .hero .gif-one {
+    width: 175px;
+    height: 190px;
+  }
+  .hero .gif-two {
+    width: 175px;
+    height: 190px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .card h1 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 880px) {
+  .cards-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  section h1 {
+    font-size: 36px;
+  }
+  .hero h2 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 790px) {
+  #service-desc {
+    font-size: 16px;
+  }
+  .services .qdesc {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 746px) {
+  .card h1 {
+    font-size: 14px;
+  }
+  .card p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 715px) {
+  #services-list {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    border: 0;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+  }
+  .underline {
+    display: none;
+  }
+  #services-list li {
+    flex: 0 1 auto;
+    margin-right: 10px;
+  }
+  #services-list .service {
+    padding-bottom: 4px;
+  }
+  .services-wrapper {
+    margin-top: 1rem;
+  }
+  #service-desc {
+    padding-left: 0;
+    min-height: 430px;
+  }
+  .services-wrapper {
+    flex-direction: column;
+  }
+  .qdesc {
+    display: none;
+  }
+  .services .services-container {
+    max-width: calc(100vw - 100px);
+  }
+}
+@media screen and (max-width: 690px) {
+  .hero .imgs {
+    position: absolute;
+    z-index: -3;
+    opacity: 0.5;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+  section h1 .highlight {
+    color: #79b5e9;
+  }
+}
+@media screen and (max-width: 425px) {
+  .hero .actions {
+    margin-top: 24px;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 3px;
+  }
+  section h1 {
+    font-size: 30px;
+  }
+  h1,
+  h2 {
+    text-align: center;
+  }
+  .actions .talk {
+    width: 152px;
+    text-align: center;
+  }
+  .hero h2 {
+    font-size: 18px;
+  }
+  .actions a {
+    padding: 0.4rem 1rem;
+    font-size: 14px;
+  }
+  #service-desc {
+    font-size: 14px;
+  }
+  section {
+    padding: 0 2rem;
+  }
+  #services-list {
+    gap: 0.5rem;
+  }
+  #services-list .service {
+    font-size: 14px;
+  }
+  .services .services-container {
+    max-width: calc(100vw - 70px);
+  }
+  .blog h1 {
+    font-size: 20px;
+  }
+  .blog p {
+    font-size: 16px;
+  }
+  .cta .talk {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  .card {
+    padding: 12px 16px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .services .services-container {
+    max-width: calc(100vw - 40px);
+  }
+  section.services {
+    padding: 0 1rem;
+  }
 }
