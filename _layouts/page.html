@@ -22,14 +22,25 @@
       *::before {
         box-sizing: border-box;
       }
+      :root {
+        --text: #eaeaea;
+        --dark-gray: #c0c0c0;
+        --highlight-blue: #699cc9;
+        --highlight-lighter: #79b5e9;
+        --btn-primary: #486d8d;
+        --btn-secondary: #4f4f88;
+        --purple-background: #43487b;
+      }
       img {
         user-select: none;
+      }
+      html {
+        scroll-behavior: smooth;
       }
       html,
       body {
         min-height: 100%;
         min-width: 100%;
-        scroll-behavior: smooth;
       }
       body {
         padding-top: 80px;
@@ -165,43 +176,6 @@
           height: 24px;
         }
       }
-
-      footer {
-        margin-top: 28px;
-        height: 250px;
-        background-color: #e0e0e0;
-        border-top: 2px solid #e0e0e0;
-        position: relative;
-      }
-      footer .copyright {
-        position: absolute;
-        bottom: 8px;
-        right: 12px;
-        margin: 0;
-        color: #333;
-      }
-      footer h1 {
-        margin: 0;
-        font-size: 24px;
-        font-weight: 600;
-      }
-      footer .links {
-        height: 100%;
-        margin-top: -12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-      }
-      footer .links a {
-        text-decoration: none;
-        color: #6e6e6e;
-        font-size: 20px;
-      }
-      footer .links a:hover {
-        text-decoration: underline;
-      }
     </style>
   </head>
   <body>
@@ -217,21 +191,14 @@
         </li>
         <li>
           <a
-            class="{% if page.url == '/about/' %}active{% endif %}"
+            class="{% if page.url == '/about' %}active{% endif %}"
             href="/about"
             >About</a
           >
         </li>
         <li>
           <a
-            class="{% if page.url == '/services/' %}active{% endif %}"
-            href="/services"
-            >Services</a
-          >
-        </li>
-        <li>
-          <a
-            class="{% if page.url == '/contact/' %}active{% endif %}"
+            class="{% if page.url == '/contact' %}active{% endif %}"
             href="/contact"
             >Contact</a
           >
@@ -249,21 +216,5 @@
     </script>
 
     {{content}}
-
-    <!-- <footer>
-      <div class="links">
-        <h1>Quick Links</h1>
-
-        <a href="/">Home</a>
-        <a href="/blogs">Blogs</a>
-        <a href="/contact">Contact Us</a>
-      </div>
-
-      <p class="copyright">&#169 StarForge AI <span id="year"></span>. All Rights Reserved.</p>
-    </footer> -->
-
-    <script>
-      document.getElementById("year").innerHTML = new Date().getFullYear();
-    </script>
   </body>
 </html>

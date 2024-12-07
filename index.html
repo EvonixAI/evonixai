@@ -1,11 +1,13 @@
 ---
 layout: page
-title: StarForge AI | Home
+title: Home | StarForge AI
 url: /
 ---
 
 <head>
   <link rel="stylesheet" href="./assets/css/index.css">
+
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
 <main>
@@ -18,9 +20,9 @@ url: /
       <h2>Unlock efficiency, scale operations, and drive growth.</h2>
       <div class="actions">
         <a class="talk" href="/">Let's Talk</a>
-        <a class="services" href="/#services">
+        <span class="services" onclick="document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });">
           Our Services <img src="./assets/img/icons/arrow.svg"></img>
-        </a>
+        </span>
       </div>
     </div>
   
@@ -34,8 +36,47 @@ url: /
     <div class="services-container">
       <h1>Our <span class="highlight">AI Solutions</span></h1>
       <div class="services-wrapper">
-        <ul id="services-list"></ul>
-        <p id="service-desc"></p>
+        <ul id="services-list">
+            <li class="service active" id="Social Media">
+              Social Media
+              <p class="qdesc" id="Social Media">Boost engagement with AI-powered social media strategies.</p>
+            </li>
+            <li class="service" id="Chatbots">
+              Chatbots
+              <p class="qdesc" id="Chatbots">Provide 24/7 support with intelligent AI chatbots.</p>
+            </li>
+            <li class="service" id="Content Creation">
+              Content Creation
+              <p class="qdesc" id="Content Creation">Generate creative content quickly with AI tools.</p>
+            </li>
+            <li class="service" id="Workflow Optimization">
+              Workflow Optimization
+              <p class="qdesc" id="Workflow Optimization">Automate tasks and streamline operations.</p>
+            </li>
+            <li class="service" id="Website Optimization">
+              Website Optimization
+              <p class="qdesc" id="Website Optimization">Improve user experience with AI-driven insights.</p>
+            </li>
+            <li class="service" id="Custom Solutions">
+              Custom Solutions
+              <p class="qdesc" id="Custom Solutions">Get tailored AI solutions for your business needs.</p>
+            </li>
+        </ul>
+        <p id="service-desc">
+          We simplify social media management with AI-powered tools designed to automate scheduling, optimize engagement, and analyze performance across platforms. Our solutions ensure consistent, data-driven social media strategies that save time and boost brand visibility.
+          <br /><br />
+          We integrate cutting-edge technologies to provide insights, enhance content delivery, and ensure your audience stays engaged—24/7.
+          <br /><br />
+          Seamless Integration with Popular Platforms:
+          <br />
+          - Facebook <br />
+          - Instagram <br />
+          - LinkedIn <br />
+          - Twitter <br />
+          - TikTok <br />
+          - …and more! <br /><br />
+          Transform your social media presence with smarter, faster, and more effective management.
+        </p>
       </div>
     </div>
   </section>
@@ -118,80 +159,45 @@ url: /
       Transform your business with cutting-edge AI solutions crafted exclusively for you. Let us help you innovate, optimize, and achieve more than you thought possible.`
     };
   
-    const qdesc = [
-      'Boost engagement with AI-powered social media strategies.',
-      'Provide 24/7 support with intelligent AI chatbots.',
-      'Generate creative content quickly with AI tools.',
-      'Automate tasks and streamline operations.',
-      'Improve user experience with AI-driven insights.',
-      'Get tailored AI solutions for your business needs.',
-    ];
+    const servicesList = document.querySelectorAll('.service');
+    servicesList.forEach((li) => {      
+      li.addEventListener("click", (e) => {
+        const t = document.querySelector(".service.active");
+        t.classList.remove("active");
 
-    window.onload = () => {
-      const list = document.getElementById("services-list");
-      Object.keys(services).forEach((key, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = key;
+        e.currentTarget.classList.add("active");
 
-        const desc = document.createElement('p');
-        const descTxt = document.createTextNode(qdesc[index]);
+        document.getElementById("service-desc").innerHTML = services[e.target.id];
 
-        desc.appendChild(descTxt);
-        desc.classList.add("qdesc")
-        desc.id = key;
-
-        li.appendChild(desc);
-        li.classList.add("service");
-  
-        li.id = key;
-  
-        if (index === 0) {
-          li.classList.add("active");
-          document.getElementById("service-desc").innerHTML = services[key];
-        }
-  
-        li.addEventListener("click", (e) => {
-          list.querySelectorAll(".service").forEach((service) => {
-            service.classList.remove("active");
+        if (window.innerWidth <= 715 && e.target.offsetLeft > window.innerWidth / 2) {          
+          list.scrollTo({
+            left: e.target.offsetLeft,
+            behavior: "smooth"
           });
-  
-          e.currentTarget.classList.add("active");
-          document.getElementById("service-desc").innerHTML = services[e.target.id];
-  
-          if (window.innerWidth <= 715 && e.target.offsetLeft > window.innerWidth / 2) {
-            console.log(e.target.offsetLeft);
-            
-            list.scrollTo({
-              left: e.target.offsetLeft,
-              behavior: "smooth"
-            });
-          } else {
-            setUnderline(e.target);
-          }
-        });
-  
-        list.appendChild(li);
+        } else {
+          setUnderline(e.target);
+        }
       });
-  
-      const underline = document.createElement("div");
-      underline.classList.add("underline");
-      list.appendChild(underline);
-  
-      const setUnderline = (element) => {
-        if (element.nodeName === 'P') {
-          underline.style.height = `${element.parentElement.offsetHeight}px`;
-          underline.style.top = `${element.parentElement.offsetTop}px`;
-        }
-        else {
-          underline.style.height = `${element.offsetHeight}px`;
-          underline.style.top = `${element.offsetTop}px`;
-        }
-      };
-  
-      const activeItem = document.querySelector('.services .active');
-      if (activeItem) {
-        setUnderline(activeItem);
+    });
+
+    const underline = document.createElement("div");
+    underline.classList.add("underline");
+    document.getElementById('services-list').appendChild(underline);
+
+    const setUnderline = (element) => {
+      if (element.nodeName === 'P') {
+        underline.style.height = `${element.parentElement.offsetHeight}px`;
+        underline.style.top = `${element.parentElement.offsetTop}px`;
       }
+      else {
+        underline.style.height = `${element.offsetHeight}px`;
+        underline.style.top = `${element.offsetTop}px`;
+      }
+    };
+
+    const activeItem = document.querySelector('.services .active');
+    if (activeItem) {
+      setUnderline(activeItem);
     }
   </script>
   
@@ -222,6 +228,8 @@ url: /
         <a class="blog" href="{{ post.url }}">
           <h1>{{ post.title }}</h1>
           <p>{{ post.description }}</p>
+
+          <img class="arr" src="/assets/img/icons/up.svg" alt="">
         </a>
       {% endfor %}
     </div>
@@ -235,6 +243,6 @@ url: /
       </div>
     </div>
 
-    <a href="#hero"><img src="/assets/img/icons/up.svg" class="up" alt=""></a>
+    <span onclick="document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });" href="#hero"><img src="/assets/img/icons/up.svg" class="up" alt=""></span>
   </section>
 </main>

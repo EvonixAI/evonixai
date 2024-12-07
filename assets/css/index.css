@@ -1,12 +1,9 @@
-* {
-  scroll-behavior: smooth;
-}
 h1,
 h2 {
   max-width: 100%;
 }
 h1 {
-  color: #eaeaea;
+  color: var(--gray);
 }
 body {
   overflow: hidden;
@@ -22,7 +19,7 @@ section {
 section {
   display: grid;
   place-items: center;
-  max-width: calc(1200px - 60px);
+  max-width: 1140px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -33,11 +30,11 @@ section h1 {
   margin-top: 0;
 }
 section h1 .highlight {
-  color: #699cc9;
+  color: var(--highlight-blue);
 }
 .hero h2 {
   margin-top: 4px;
-  color: #c0c0c0;
+  color: var(--dark-gray);
   font-size: 18px;
   font-weight: 500;
   width: 320px;
@@ -75,7 +72,8 @@ section h1 .highlight {
   gap: 12px;
   align-items: center;
 }
-.actions a {
+.actions a,
+.actions span {
   text-decoration: none;
   color: #ffffff;
   padding: 0.5rem 1.6rem;
@@ -83,15 +81,16 @@ section h1 .highlight {
   font-weight: 700;
   display: block;
   border-radius: 4px;
+  cursor: url("/assets/cursors/pointer.svg"), pointer;
 }
 .actions .talk {
-  background-color: #5e8db6;
-  border: 1.5px solid #5e8db6;
+  background-color: var(--btn-primary);
+  border: 1.5px solid var(--btn-primary);
   transition: 0.35s ease-in-out opacity;
 }
 .actions .services {
   position: relative;
-  border: 1.5px solid #6b6bbb;
+  border: 1.5px solid var(--btn-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +104,7 @@ section h1 .highlight {
   left: 0;
   content: "";
   height: 0;
-  background-color: #6b6bbb;
+  background-color: var(--btn-secondary);
   transition: 0.25s;
 }
 .actions .services img {
@@ -162,7 +161,7 @@ section.services {
   padding-left: 2rem;
 }
 #services-list .service {
-  color: #c0c0c0;
+  color: var(--dark-gray);
   white-space: nowrap;
   cursor: url("/assets/cursors/pointer.svg"), auto !important;
   transition: 0.25s;
@@ -179,7 +178,7 @@ section.services {
 }
 .services .qdesc {
   margin: 0;
-  color: #c0c0c0;
+  color: var(--dark-gray);
   white-space: normal;
   font-size: 14px;
 }
@@ -204,7 +203,7 @@ section.services {
 }
 .card {
   width: 330px;
-  background-color: #43487b;
+  background-color: var(--purple-background);
   margin-bottom: 24px;
   padding: 18px 22px;
   padding-bottom: 22px;
@@ -239,25 +238,36 @@ section.services {
   justify-content: center;
   max-width: 1000px;
 }
+.blogs .arr {
+  width: 40px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  transform: rotate(90deg);
+  transition: 0.25s transform;
+}
 .blog {
   text-align: center;
   display: block;
   text-decoration: none;
-  color: #333;
   width: 100%;
-  background-color: #43487b;
+  background-color: var(--purple-background);
   padding: 12px 22px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
-  cursor: pointer;
+  cursor: url("/assets/cursors/pointer.svg"), pointer;
   height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   transition: 0.25s opacity;
+  position: relative;
 }
 .blog:hover {
   opacity: 0.8;
+}
+.blog:hover .arr {
+  transform: rotate(45deg);
 }
 .blog * {
   margin-top: 0;
@@ -273,17 +283,22 @@ section.services {
 }
 .blog a {
   text-decoration: none;
-  color: #333;
+  color: var(--text);
 }
 
 .cta {
   padding: 0 2rem;
   text-align: center;
   position: relative;
+  display: flex;
+  place-items: unset;
+  justify-content: center;
+  align-items: center;
 }
 .cta h1 {
   text-align: center;
   width: 100%;
+  font-size: 35px;
 }
 .cta .actions {
   margin-top: 28px;
@@ -291,7 +306,7 @@ section.services {
   place-items: center;
 }
 .cta .talk {
-  font-size: 30px;
+  font-size: 20px;
   padding: 8px 24px;
 }
 .cta .up {
@@ -300,7 +315,7 @@ section.services {
   right: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 78px;
+  width: 58px;
   cursor: url("/assets/cursors/pointer.svg"), pointer;
   transition: 0.25s;
 }
@@ -448,10 +463,18 @@ section.services {
     filter: blur(5px);
   }
   section h1 .highlight {
-    color: #79b5e9;
+    color: var(--highlight-lighter);
+  }
+}
+@media screen and (max-width: 560px) {
+  .blog .arr {
+    width: 30px;
   }
 }
 @media screen and (max-width: 425px) {
+  .blog {
+    padding: 12px 18px;
+  }
   .hero .actions {
     margin-top: 24px;
     flex-direction: column !important;
@@ -472,7 +495,8 @@ section.services {
   .hero h2 {
     font-size: 18px;
   }
-  .actions a {
+  .actions a,
+  .actions > span {
     padding: 0.4rem 1rem;
     font-size: 14px;
   }

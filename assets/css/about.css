@@ -1,0 +1,156 @@
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
+}
+section {
+  scroll-snap-align: center;
+}
+section {
+  padding: 0 2rem;
+}
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3rem;
+}
+.hero .imgs {
+  position: relative;
+  width: 420px;
+  height: 460px;
+  flex-shrink: 0;
+}
+.hero .text {
+  max-width: 480px;
+}
+.hero .text h1 {
+  font-size: 40px;
+}
+.highlight {
+  color: var(--highlight-blue);
+}
+.hero .text p {
+  font-size: 18px;
+}
+.gif-one,
+.gif-two {
+  width: 300px;
+  height: 275px;
+  position: absolute;
+}
+.gif-one {
+  z-index: 1;
+  left: 0;
+  top: 24px;
+}
+.gif-two {
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.statements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.statements-wrapper > h1 {
+  font-size: 38px;
+}
+.statements-wrapper {
+  max-width: 1200px;
+}
+.statement-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+.statement {
+  background-color: var(--purple-background);
+  padding: 12px 22px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1000px) {
+  .hero .imgs {
+    width: 220px;
+    height: 320px;
+  }
+  .hero .gif-one {
+    width: 175px;
+    height: 190px;
+  }
+  .hero .gif-two {
+    width: 175px;
+    height: 190px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .hero .text h1 {
+    font-size: 30px;
+  }
+  .hero .text p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 690px) {
+  .hero .imgs {
+    position: absolute;
+    z-index: -3;
+    opacity: 0.5;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+  section h1 .highlight {
+    color: var(--highlight-lighter);
+  }
+  .hero .text h1 {
+    font-size: 36px;
+  }
+  .hero .text p {
+    font-size: 18px;
+  }
+  .statement-wrapper {
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 625px) {
+  .statement-wrapper {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+@media screen and (max-width: 470px) {
+  .statement {
+    padding: 16px 12px;
+  }
+  .statement p,
+  .statement h1 {
+    margin: 0;
+  }
+  .statement h1 {
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .hero .text h1 {
+    font-size: 24px;
+  }
+  .hero .text p {
+    font-size: 14px;
+  }
+  .statements-wrapper > h1 {
+    font-size: 24px;
+  }
+  .statement h1 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .statement p {
+    font-size: 14px;
+  }
+}
