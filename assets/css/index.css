@@ -81,7 +81,7 @@ section h1 .highlight {
   font-weight: 700;
   display: block;
   border-radius: 4px;
-  cursor: url("/assets/cursors/pointer.svg"), pointer;
+  cursor: url("/assets/cursors/pointer.png"), pointer;
 }
 .actions .talk {
   background-color: var(--btn-primary);
@@ -110,6 +110,7 @@ section h1 .highlight {
 .actions .services img {
   margin-top: 1px;
   height: 18px;
+  width: 18px;
 }
 .actions .talk:hover {
   opacity: 0.8;
@@ -163,7 +164,7 @@ section.services {
 #services-list .service {
   color: var(--dark-gray);
   white-space: nowrap;
-  cursor: url("/assets/cursors/pointer.svg"), auto !important;
+  cursor: url("/assets/cursors/pointer.png"), auto !important;
   transition: 0.25s;
   font-weight: 500;
   padding-bottom: 22px;
@@ -240,6 +241,7 @@ section.services {
 }
 .blogs .arr {
   width: 40px;
+  height: 40px;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -255,7 +257,7 @@ section.services {
   padding: 12px 22px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
-  cursor: url("/assets/cursors/pointer.svg"), pointer;
+  cursor: url("/assets/cursors/pointer.png"), pointer;
   height: 140px;
   display: flex;
   flex-direction: column;
@@ -315,13 +317,14 @@ section.services {
   right: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 58px;
-  cursor: url("/assets/cursors/pointer.svg"), pointer;
+  width: 48px;
+  height: 48px;
+  cursor: url("/assets/cursors/pointer.png"), pointer;
   transition: 0.25s;
 }
 .cta .up:hover {
   opacity: 0.7;
-  bottom: 38px;
+  bottom: 36px;
 }
 
 .hero div {
