@@ -5,16 +5,15 @@ h2 {
 h1 {
   color: var(--gray);
 }
-body {
-  overflow: hidden;
-}
-main {
-  scroll-snap-type: y mandatory;
+html {
+  margin: 0;
   overflow-y: scroll;
-  height: calc(100vh - 80px);
+  scroll-snap-type: y mandatory;
 }
 section {
+  padding-top: 80px !important;
   scroll-snap-align: center;
+  height: 100vh;
 }
 section {
   display: grid;
@@ -299,8 +298,8 @@ section.services {
 }
 .cta h1 {
   text-align: center;
-  width: 100%;
-  font-size: 35px;
+  max-width: 600px;
+  font-size: 42px;
 }
 .cta .actions {
   margin-top: 28px;
@@ -310,6 +309,9 @@ section.services {
 .cta .talk {
   font-size: 20px;
   padding: 8px 24px;
+}
+.cta .talk:hover {
+  opacity: 0.8 !important;
 }
 .cta .up {
   position: absolute;
@@ -459,11 +461,11 @@ section.services {
     position: absolute;
     z-index: -3;
     opacity: 0.5;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
   }
   section h1 .highlight {
     color: var(--highlight-lighter);
@@ -472,6 +474,9 @@ section.services {
 @media screen and (max-width: 560px) {
   .blog .arr {
     width: 30px;
+  }
+  .cta h1 {
+    font-size: 28px;
   }
 }
 @media screen and (max-width: 425px) {

@@ -9,7 +9,7 @@ title: Contact Us
 
 <main>
   <div class="content-wrapper">
-    <div class="imgs">
+    <div data-aos="fade-right" data-aos-duration="800" class="imgs" id="imgs">
       <video class="gif-one" autoplay loop muted playsinline>
         <source
           src="/assets/videos/30462c3c74a4c7dac640fa09390f08c6 (1).webm"
@@ -26,7 +26,7 @@ title: Contact Us
       </video>
     </div>
 
-    <div class="form-container">
+    <div data-aos="fade-in" data-aos-duration="600" class="form-container">
       <h1>Contact Us</h1>
       <form class="contact-form" id="contactForm" action="#">
         <label for="name">Name</label>
@@ -53,7 +53,6 @@ title: Contact Us
           name="message"
           placeholder="Your Message"
           rows="5"
-          required
         ></textarea>
 
         <input id="submit" type="submit" value="Send Message" />
@@ -65,6 +64,14 @@ title: Contact Us
     Or reach us at <a href="mailto:ali@starforgeai.com">ali@starforgeai.com</a>
   </p>
 </main>
+
+<script>
+  const imgs = document.getElementById("imgs");
+
+  if (window.innerWidth < 780) {
+    imgs.removeAttribute("data-aos");
+  }
+</script>
 
 <script>
   function handleFormSubmit(e) {

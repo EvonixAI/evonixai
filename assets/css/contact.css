@@ -1,5 +1,6 @@
 main {
-  height: calc(100vh - 80px);
+  padding-top: 80px;
+  height: calc(100vh);
   width: 100%;
   display: grid;
   place-items: center;
@@ -137,10 +138,10 @@ main {
     position: absolute;
     z-index: -1;
     opacity: 0.5;
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
   }
   .form-container {
     width: calc(100vw - 80px);
