@@ -60,13 +60,13 @@
         background-attachment: fixed;
         background-size: cover;
         cursor: url("./assets/cursors/default.png"), default;
+        overflow-x: hidden;
       }
       a {
         cursor: url("./assets/cursors/pointer.png"), pointer !important;
       }
       section {
         background: transparent;
-        height: calc(100vh - 80px);
       }
       * {
         color: #eaeaea;
@@ -95,7 +95,7 @@
       nav .menu {
         width: 32px;
         height: 32px;
-        cursor: pointer;
+        cursor: url("./assets/cursors/pointer.png"), pointer;
         display: none;
       }
       nav .links {
@@ -189,7 +189,7 @@
   </head>
   <body>
     <nav>
-      <a style="display: block; height: auto" href="starforgeai"
+      <a style="display: block; height: auto" href="{{ site.baseurl }}/"
         ><img src="./assets/img/STARFORGE AI.svg" alt="Logo" class="logo"
       /></a>
       <img
@@ -201,7 +201,11 @@
 
       <ul class="links" id="nav-links">
         <li>
-          <a class="{% if page.url == '/' %}active{% endif %}" href="/">Home</a>
+          <a
+            class="{% if page.url == '/' %}active{% endif %}"
+            href="{{ site.baseurl }}/"
+            >Home</a
+          >
         </li>
         <li>
           <a class="{% if page.url == '/about' %}active{% endif %}" href="about"

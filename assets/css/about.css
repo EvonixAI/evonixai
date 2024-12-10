@@ -1,17 +1,9 @@
-/* html {
-  margin: 0;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-} */
-section {
-  padding-top: 80px !important;
-  /* scroll-snap-align: center; */
-  height: 100vh;
-}
 section {
   padding: 0 2rem;
 }
 .hero {
+  padding-top: 80px;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -57,9 +49,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 6rem;
 }
 .statements-wrapper > h1 {
   font-size: 38px;
+  margin-top: 0;
 }
 .statements-wrapper {
   max-width: 1200px;

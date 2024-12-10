@@ -12,9 +12,9 @@ h1 {
   scroll-snap-type: y mandatory;
 } */
 section {
-  padding-top: 80px !important;
+  /* padding-top: 80px !important; */
   /* scroll-snap-align: center; */
-  height: 100vh;
+  /* height: 100vh; */
 }
 section {
   display: grid;
@@ -40,6 +40,8 @@ section h1 .highlight {
   width: 320px;
 }
 .hero {
+  padding-top: 80px !important;
+  height: 100vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -125,6 +127,9 @@ section.services {
   padding: 0 2rem;
   width: 100%;
 }
+#services {
+  scroll-margin-top: 130px;
+}
 .services-wrapper {
   margin-top: 1.5rem;
   display: flex;
@@ -193,6 +198,7 @@ section.services {
 }
 
 .benefits-wrapper {
+  margin-top: 4rem;
   max-width: 1200px;
 }
 .benefits h1 {
@@ -289,7 +295,8 @@ section.services {
 }
 
 .cta {
-  padding: 0 2rem;
+  margin-top: 6rem;
+  padding: 3rem 2rem;
   text-align: center;
   position: relative;
   display: flex;
@@ -304,6 +311,7 @@ section.services {
 }
 .cta .actions {
   margin-top: 28px;
+  margin-bottom: 5rem;
   display: grid;
   place-items: center;
 }
@@ -316,7 +324,7 @@ section.services {
 }
 .cta .up {
   position: absolute;
-  bottom: 28px;
+  bottom: 36px;
   right: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -327,7 +335,7 @@ section.services {
 }
 .cta .up:hover {
   opacity: 0.7;
-  bottom: 36px;
+  bottom: 42px;
 }
 
 .hero div {
