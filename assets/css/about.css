@@ -1,11 +1,11 @@
-html {
+/* html {
   margin: 0;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-}
+} */
 section {
   padding-top: 80px !important;
-  scroll-snap-align: center;
+  /* scroll-snap-align: center; */
   height: 100vh;
 }
 section {

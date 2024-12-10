@@ -62,12 +62,12 @@ main {
   font-size: 18px;
   color: #fff; /* Dark text for readability */
   text-align: left;
-  cursor: url("assets/cursors/default.png"), default;
+  cursor: url("../cursors/default.png"), default;
 }
 
 .contact-form input,
 .contact-form textarea {
-  cursor: url("assets/cursors/text.png"), text;
+  cursor: url("../cursors/text.png"), text;
   width: 100%;
   padding: 6px 0;
   border: 1px solid rgba(0, 0, 0, 0.3); /* Light border */
@@ -94,7 +94,7 @@ main {
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  cursor: url("assets/cursors/pointer.png"), pointer;
+  cursor: url("../cursors/pointer.png"), pointer;
   transition: opacity 0.3s ease;
 }
 
@@ -104,12 +104,10 @@ main {
 
 .contact-form #submit:disabled {
   opacity: 0.5;
-  cursor: url("assets/cursors/not-allowed.png"), not-allowed;
+  cursor: url("../cursors/not-allowed.png"), not-allowed;
 }
 
 .email {
-  position: absolute;
-  bottom: 2px;
   text-align: center;
   width: 100%;
 }

@@ -23,7 +23,7 @@ permalink: /blog/:title.html
 title: "Starforge AI"
 description: >- # this means to ignore newlines until "baseurl:"
   StarForge AI transforms businesses with high quality tailored AI-automation solutions.
-baseurl: "starforgeai" # the subpath of your site, e.g. /blog
+# baseurl: "starforgeai" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: "Starforge AI"

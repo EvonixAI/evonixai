@@ -5,15 +5,15 @@ h2 {
 h1 {
   color: var(--gray);
 }
-html {
+/* html {
   margin: 0;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
-}
+} */
 section {
   padding-top: 80px !important;
-  scroll-snap-align: center;
+  /* scroll-snap-align: center; */
   height: 100vh;
 }
 section {
@@ -81,7 +81,7 @@ section h1 .highlight {
   font-weight: 700;
   display: block;
   border-radius: 4px;
-  cursor: url("assets/cursors/pointer.png"), pointer;
+  cursor: url("../cursors/pointer.png"), pointer;
 }
 .actions .talk {
   background-color: var(--btn-primary);
@@ -164,7 +164,7 @@ section.services {
 #services-list .service {
   color: var(--dark-gray);
   white-space: nowrap;
-  cursor: url("assets/cursors/pointer.png"), auto !important;
+  cursor: url("../cursors/pointer.png"), auto !important;
   transition: 0.25s;
   font-weight: 500;
   padding-bottom: 22px;
@@ -257,7 +257,7 @@ section.services {
   padding: 12px 22px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
-  cursor: url("assets/cursors/pointer.png"), pointer;
+  cursor: url("./assets/cursors/pointer.png"), pointer;
   height: 140px;
   display: flex;
   flex-direction: column;
@@ -322,7 +322,7 @@ section.services {
   transform: translateX(-50%);
   width: 48px;
   height: 48px;
-  cursor: url("assets/cursors/pointer.png"), pointer;
+  cursor: url("../cursors/pointer.png"), pointer;
   transition: 0.25s;
 }
 .cta .up:hover {

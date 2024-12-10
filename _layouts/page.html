@@ -9,6 +9,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/img/favicon.ico"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,10 +59,10 @@
         background: radial-gradient(circle, #5c2d91, #0d2b45);
         background-attachment: fixed;
         background-size: cover;
-        cursor: url("assets/cursors/default.png"), default;
+        cursor: url("./assets/cursors/default.png"), default;
       }
       a {
-        cursor: url("assets/cursors/pointer.png"), pointer !important;
+        cursor: url("./assets/cursors/pointer.png"), pointer !important;
       }
       section {
         background: transparent;
@@ -183,10 +189,15 @@
   </head>
   <body>
     <nav>
-      <a style="display: block; height: auto" href="/"
-        ><img src="assets/img/STARFORGE AI.svg" alt="Logo" class="logo"
+      <a style="display: block; height: auto" href="starforgeai"
+        ><img src="./assets/img/STARFORGE AI.svg" alt="Logo" class="logo"
       /></a>
-      <img src="assets/img/icons/menu.svg" alt="Menu" class="menu" id="menu" />
+      <img
+        src="./assets/img/icons/menu.svg"
+        alt="Menu"
+        class="menu"
+        id="menu"
+      />
 
       <ul class="links" id="nav-links">
         <li>
@@ -222,7 +233,6 @@
     <script>
       AOS.init({
         once: true,
-        delay: 300,
       });
     </script>
   </body>
