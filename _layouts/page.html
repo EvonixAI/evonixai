@@ -53,10 +53,10 @@
         background: radial-gradient(circle, #5c2d91, #0d2b45);
         background-attachment: fixed;
         background-size: cover;
-        cursor: url("/assets/cursors/default.png"), default;
+        cursor: url("assets/cursors/default.png"), default;
       }
       a {
-        cursor: url("/assets/cursors/pointer.png"), pointer !important;
+        cursor: url("assets/cursors/pointer.png"), pointer !important;
       }
       section {
         background: transparent;
@@ -186,23 +186,21 @@
       <a style="display: block; height: auto" href="/"
         ><img src="assets/img/STARFORGE AI.svg" alt="Logo" class="logo"
       /></a>
-      <img src="/assets/img/icons/menu.svg" alt="Menu" class="menu" id="menu" />
+      <img src="assets/img/icons/menu.svg" alt="Menu" class="menu" id="menu" />
 
       <ul class="links" id="nav-links">
         <li>
           <a class="{% if page.url == '/' %}active{% endif %}" href="/">Home</a>
         </li>
         <li>
-          <a
-            class="{% if page.url == '/about' %}active{% endif %}"
-            href="/about"
+          <a class="{% if page.url == '/about' %}active{% endif %}" href="about"
             >About</a
           >
         </li>
         <li>
           <a
             class="{% if page.url == '/contact' %}active{% endif %}"
-            href="/contact"
+            href="contact"
             >Contact</a
           >
         </li>
