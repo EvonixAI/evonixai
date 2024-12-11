@@ -88,8 +88,9 @@
         bottom: 0;
       }
       nav .logo {
-        width: 200px;
-        height: 55px;
+        width: 160px;
+        height: 45px;
+        margin-top: -4px;
         vertical-align: middle;
       }
       nav .menu {
@@ -161,7 +162,11 @@
   </head>
   <body>
     <nav>
-      <a style="display: block; height: auto" href="{{ site.baseurl }}/"
+      <a
+        data-aos-duration="1200"
+        style="display: block; height: auto"
+        id="logo"
+        href="{{ site.baseurl }}/"
         ><img src="./assets/img/evonix.png" alt="Logo" class="logo"
       /></a>
       <img
@@ -174,18 +179,23 @@
       <ul class="links" id="nav-links">
         <li>
           <a
+            data-aos-duration="1200"
             class="{% if page.url == '/' %}active{% endif %}"
             href="{{ site.baseurl }}/"
             >Home</a
           >
         </li>
         <li>
-          <a class="{% if page.url == '/about' %}active{% endif %}" href="about"
+          <a
+            data-aos-duration="1300"
+            class="{% if page.url == '/about' %}active{% endif %}"
+            href="about"
             >About</a
           >
         </li>
         <li>
           <a
+            data-aos-duration="1400"
             class="{% if page.url == '/contact' %}active{% endif %}"
             href="contact"
             >Contact</a
@@ -195,6 +205,17 @@
     </nav>
 
     <script>
+      if (!sessionStorage.getItem("navbar_anim_shown")) {
+        document.getElementById("logo").setAttribute("data-aos", "fade-right");
+
+        const links = document.getElementById("nav-links");
+        links.querySelectorAll("a").forEach((link) => {
+          link.setAttribute("data-aos", "fade-left");
+        });
+
+        sessionStorage.setItem("navbar_anim_shown", "true");
+      }
+
       const menuIcon = document.getElementById("menu");
       const navLinks = document.getElementById("nav-links");
 
