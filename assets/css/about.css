@@ -54,6 +54,7 @@ section {
 .statements-wrapper > h1 {
   font-size: 36px;
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 .statement-wrapper h1 {
   font-size: 26px;
@@ -143,8 +144,6 @@ section {
   .statements-wrapper > h1 {
     margin-bottom: 1rem;
   }
-}
-@media screen and (max-width: 470px) {
   .hero .text h1 {
     font-size: 24px;
   }
@@ -159,6 +158,12 @@ section {
   }
   .statement p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 425px) {
+  h1,
+  h2 {
+    text-align: center;
   }
 }
 @media screen and (max-width: 360px) {
