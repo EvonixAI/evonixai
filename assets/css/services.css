@@ -7,11 +7,46 @@
 
 h1 {
   color: #fff;
-  font-size: 2.4rem;
+  font-size: 42px;
+  margin-bottom: 1rem;
 }
 
 .highlight {
   color: var(--highlight-blue);
+}
+
+.quick-access {
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.quick-access h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.quick-access ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.quick-access li {
+  margin: 0;
+}
+
+.quick-access a {
+  text-decoration: underline;
+  color: #5c6bc0;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.25s;
+}
+
+.quick-access a:hover {
+  color: #4557ce;
 }
 
 .service-container {
@@ -26,6 +61,7 @@ h1 {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   position: sticky;
+  scroll-margin-top: 100px;
 }
 
 h2 {
@@ -59,7 +95,13 @@ strong {
   color: var(--text-gray);
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1160px) {
+  .quick-access ul {
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .service-container {
     grid-template-columns: 1fr;
   }
@@ -70,5 +112,23 @@ strong {
 
   p {
     font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  h1 {
+    font-size: 34px;
+  }
+  .service {
+    padding: 10px 14px;
+  }
+  h2 {
+    margin-bottom: 0;
   }
 }

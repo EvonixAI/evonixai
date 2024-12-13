@@ -113,21 +113,28 @@ section h1 .highlight {
   color: #ffffff;
 }
 
-.about {
+.about,
+.services-section {
   max-width: 1100px;
   padding: 0 2rem;
   margin-bottom: 5rem;
 }
-.about p {
+.about p,
+.services-section p {
   font-size: 20px;
 }
-.about a {
+.about a,
+.services-section a {
   background-color: var(--btn-primary);
   transition: 0.25s;
   font-size: 20px;
 }
-.about a:hover {
+.about a:hover,
+.services-section a:hover {
   opacity: 0.7;
+}
+.services-section {
+  margin-bottom: 3rem;
 }
 
 .benefits-wrapper {
@@ -450,20 +457,9 @@ section h1 .highlight {
     padding: 0.4rem 1rem;
     font-size: 14px;
   }
-  #service-desc {
-    font-size: 14px;
-  }
-  section {
-    padding: 0 2rem;
-  }
-  #services-list {
-    gap: 0.5rem;
-  }
-  #services-list .service {
-    font-size: 14px;
-  }
-  .services .services-container {
-    max-width: calc(100vw - 70px);
+  .about p,
+  .services-section p {
+    font-size: 16px;
   }
   .blog h1 {
     font-size: 20px;
@@ -479,8 +475,16 @@ section h1 .highlight {
   .hero h1 {
     font-size: 24px;
   }
+  .hero h2 {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
   .card {
     padding: 12px 16px;
+  }
+  .about,
+  .services-section {
+    padding: 0 1.5rem;
   }
 }
 @media screen and (max-width: 360px) {
