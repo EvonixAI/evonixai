@@ -22,7 +22,7 @@ permalink: /blog/:title.html
 
 title: "Evonix AI"
 description: >- # this means to ignore newlines until "baseurl:"
-  Evonix AI transforms businesses with high quality tailored AI-automation solutions.
+  Evonix AI: AI automation solutions for businesses. Streamline operations, optimize sales, and enhance marketing strategies with cutting-edge tools tailored to your needs.
 # baseurl: "evonixai" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 author:
