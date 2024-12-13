@@ -205,7 +205,10 @@
     </nav>
 
     <script>
-      if (!sessionStorage.getItem("navbar_anim_shown")) {
+      if (
+        sessionStorage.getItem("navbar_anim_shown") === null &&
+        !(window.innerWidth < 768)
+      ) {
         document.getElementById("logo").setAttribute("data-aos", "fade-right");
 
         const links = document.getElementById("nav-links");
