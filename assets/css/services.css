@@ -16,8 +16,14 @@ h1 {
 }
 
 .quick-access {
-  border-radius: 8px;
-  margin-bottom: 20px;
+  background-color: #555b9e;
+  padding: 0.8rem 2rem;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 3rem;
+  position: sticky;
+  top: 80px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 99;
 }
 
 .quick-access h3 {
@@ -28,9 +34,12 @@ h1 {
 .quick-access ul {
   list-style-type: none;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .quick-access li {
@@ -39,52 +48,68 @@ h1 {
 
 .quick-access a {
   text-decoration: underline;
-  color: #5c6bc0;
+  color: var(--text-gray);
   font-weight: bold;
   font-size: 18px;
   transition: 0.25s;
 }
 
 .quick-access a:hover {
-  color: #4557ce;
-}
-
-.service-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  opacity: 0.6;
 }
 
 .service {
-  background-color: var(--purple-background);
-  padding: 15px 20px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  position: sticky;
-  scroll-margin-top: 100px;
+  margin-bottom: 5rem;
+  scroll-margin-top: 160px;
 }
 
-.services h2 {
-  font-size: 1.6rem;
+.service-wrapper {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.service-wrapper > div {
+  flex: 0.65;
+}
+.service-wrapper .img {
+  flex: 0.35;
+  display: flex;
+  justify-content: center;
+}
+
+.service-wrapper img {
+  max-width: 500px;
+}
+
+#chatbots img {
+  max-width: 400px;
+}
+#website-optimization img {
+  max-width: 440px;
+}
+
+.service h2 {
+  font-size: 2rem;
   color: var(--text);
   margin-bottom: 15px;
   margin-top: 2px;
   text-align: center;
 }
 
-.services p {
-  font-size: 1rem;
+.service p {
+  font-size: 1.2rem;
   color: var(--text-gray);
   margin-bottom: 2px;
 }
 
-.services ul {
+.service ul {
   list-style-type: none;
   padding: 0;
   margin-top: 4px;
 }
 
-.services ul li {
+.service ul li {
   margin-bottom: 2px;
   font-size: 1rem;
   color: var(--text-gray);
@@ -93,6 +118,28 @@ h1 {
 strong {
   font-weight: bold;
   color: var(--text-gray);
+}
+
+@media screen and (max-width: 1200px) {
+  .service-wrapper .img {
+    position: absolute;
+    z-index: -3;
+    opacity: 0.5;
+    -webkit-filter: blur(13px);
+    -moz-filter: blur(13px);
+    -o-filter: blur(13px);
+    -ms-filter: blur(13px);
+    filter: blur(13px);
+  }
+  .service-wrapper img {
+    max-width: 80vw !important;
+  }
+  .service h2 {
+    margin-bottom: 0;
+  }
+  .service {
+    scroll-margin-top: 180px;
+  }
 }
 
 @media screen and (max-width: 1160px) {
@@ -113,22 +160,39 @@ strong {
   .services p {
     font-size: 0.95rem;
   }
+  .quick-access {
+    padding: 0;
+    overflow-x: scroll;
+  }
+  .quick-access ul {
+    width: 1100px;
+    flex-wrap: nowrap;
+    padding: 1rem;
+  }
 }
-
-@media screen and (max-width: 390px) {
-  .services h1 {
-    text-align: center;
+@media screen and (max-width: 630px) {
+  .service-wrapper .desc {
+    flex: 1;
   }
 }
 
 @media screen and (max-width: 390px) {
   .services h1 {
     font-size: 34px;
+    text-align: center;
   }
   .service {
-    padding: 10px 14px;
+    scroll-margin-top: 140px;
   }
   .services h2 {
     margin-bottom: 0;
+  }
+  .quick-access a {
+    font-size: 14px;
+  }
+  .quick-access ul {
+    gap: 0.5rem;
+    width: 900px;
+    padding: 0.5rem;
   }
 }
