@@ -64,7 +64,7 @@ h1 {
   scroll-margin-top: 100px;
 }
 
-h2 {
+.services h2 {
   font-size: 1.6rem;
   color: var(--text);
   margin-bottom: 15px;
@@ -72,19 +72,19 @@ h2 {
   text-align: center;
 }
 
-p {
+.services p {
   font-size: 1rem;
   color: var(--text-gray);
   margin-bottom: 2px;
 }
 
-ul {
+.services ul {
   list-style-type: none;
   padding: 0;
   margin-top: 4px;
 }
 
-ul li {
+.services ul li {
   margin-bottom: 2px;
   font-size: 1rem;
   color: var(--text-gray);
@@ -106,29 +106,29 @@ strong {
     grid-template-columns: 1fr;
   }
 
-  h2 {
+  .services h2 {
     font-size: 1.4rem;
   }
 
-  p {
+  .services p {
     font-size: 0.95rem;
   }
 }
 
 @media screen and (max-width: 390px) {
-  h1 {
+  .services h1 {
     text-align: center;
   }
 }
 
 @media screen and (max-width: 390px) {
-  h1 {
+  .services h1 {
     font-size: 34px;
   }
   .service {
     padding: 10px 14px;
   }
-  h2 {
+  .services h2 {
     margin-bottom: 0;
   }
 }
