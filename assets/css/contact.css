@@ -112,6 +112,33 @@ main {
   width: 100%;
 }
 
+.popup {
+  position: fixed;
+  top: -50px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #339636; /* Success color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out,
+    top 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup.show {
+  top: 20px;
+  opacity: 1;
+}
+
+.popup.hidden {
+  top: -50px;
+  opacity: 0;
+}
+
 @media screen and (max-width: 1090px) {
   .imgs {
     width: 290px;

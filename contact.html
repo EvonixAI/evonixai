@@ -63,6 +63,10 @@ description: Get in touch with the team at Evonix AI to explore tailored AI solu
     Or reach us at
     <a href="mailto:ali.mamdani@evonixai.com">ali.mamdani@evonixai.com</a>
   </p>
+
+  <div id="popup" class="popup hidden">
+    Thank you! Someone will get back to you soon.
+  </div>
 </main>
 
 <script>
@@ -106,6 +110,15 @@ description: Get in touch with the team at Evonix AI to explore tailored AI solu
     })
       .then(() => {
         submit.value = "Sent!";
+
+        const popup = document.getElementById("popup");
+        popup.classList.remove("hidden");
+        popup.classList.add("show");
+
+        setTimeout(() => {
+          popup.classList.remove("show");
+          popup.classList.add("hidden");
+        }, 8000);
       })
       .catch((err) => {
         console.log("err", err);
