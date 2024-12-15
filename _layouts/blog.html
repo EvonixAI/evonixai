@@ -3,10 +3,23 @@ layout: page
 ---
 
 <style>
+  body {
+    background: #0d2b45;
+  }
+  nav {
+  }
+  article * {
+    /* color: #333 !important; */
+    text-wrap: wrap;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
   main {
     max-width: calc(800px - 60px);
     margin-right: auto;
     margin-left: auto;
+    padding-top: 100px;
   }
 
   header h1 {
@@ -14,18 +27,28 @@ layout: page
     margin-bottom: 4px;
     font-size: 36px;
   }
-  header h2 {
+  header p {
     margin-top: 0;
-    margin-bottom: 46px;
+    margin-bottom: 1rem;
     font-weight: 400;
     font-size: 18px;
+  }
+
+  article p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    /* color: #555; */
+  }
+  article h2 {
+    font-size: 1.8rem;
+    margin-bottom: -1.2rem;
   }
 </style>
 <main>
   <article>
     <header>
       <h1>{{page.title}}</h1>
-      <h2>{{page.date | date: "%B %-d, %Y" }}</h2>
+      <p>{{page.date | date: "%B %-d, %Y" }}</p>
     </header>
 
     {{content}}

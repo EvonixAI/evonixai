@@ -35,6 +35,12 @@ section h1 .highlight {
   justify-content: space-around;
   align-items: center;
 }
+@supports (height: 100dvh) {
+  .hero {
+    height: 100dvh;
+  }
+}
+
 .hero .imgs {
   position: relative;
   width: 420px;
