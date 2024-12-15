@@ -19,17 +19,20 @@ url: /
     <h2>Unlock efficiency, scale operations, and drive growth.</h2>
     <div class="actions">
       <a class="talk" href="contact">Let's Talk</a>
-      <a class="services" href="services">Our Services <img alt="arrow" src="./assets/img/icons/arrow.svg"></img></a>
+      <a class="services" href="services">Our Services <img alt="arrow" src="{{ "/assets/img/icons/arrow.svg"
+      | relative_url }}"></img></a>
     </div>
   </div>
 
   <div data-aos="fade-left" data-aos-duration="1200" class="imgs" id="imgs">
     <video class="gif-one" autoplay loop muted playsinline>
-      <source src="./assets/videos/031ef585f60d6fbd5cff2cf5c53f1656 (1).webm" type="video/webm">
+      <source src="{{ "/assets/videos/031ef585f60d6fbd5cff2cf5c53f1656 (1).webm"
+      | relative_url }}" type="video/webm">
     </video>
 
     <video class="gif-two" autoplay loop muted playsinline>
-      <source src="./assets/videos/3200ec4516d57298a960d3678bd5dbcd (1).webm" type="video/webm">
+      <source src="{{ "/assets/videos/3200ec4516d57298a960d3678bd5dbcd (1).webm"
+      | relative_url }}" type="video/webm">
     </video>
   </div>
 
@@ -96,7 +99,8 @@ url: /
         <h1>{{ post.title }}</h1>
         <p>{{ post.description }}</p>
 
-        <img class="arr" src="./assets/img/icons/up.svg" alt="open">
+        <img class="arr" src="{{ "/assets/img/icons/up.svg"
+      | relative_url }}" alt="open">
       </a>
     {% endfor %}
   </div>
@@ -110,5 +114,6 @@ url: /
     </div>
   </div>
 
-  <span onclick="document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });" href="#hero"><img src="./assets/img/icons/up.svg" class="up" alt="Scroll Up"></span>
+  <span onclick="document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });" href="#hero"><img src="{{ "/assets/img/icons/up.svg"
+      | relative_url }}" class="up" alt="Scroll Up"></span>
 </section>
