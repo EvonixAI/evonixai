@@ -47,7 +47,7 @@ h1 {
 }
 
 .quick-access a {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--text-gray);
   font-weight: bold;
   font-size: 18px;
