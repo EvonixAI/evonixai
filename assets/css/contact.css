@@ -67,7 +67,6 @@ main {
 
 .contact-form input,
 .contact-form textarea {
-  cursor: url("/cursors/text.png"), text;
   width: 100%;
   padding: 6px 0;
   border: 1px solid rgba(0, 0, 0, 0.3); /* Light border */
