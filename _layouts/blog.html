@@ -6,49 +6,110 @@ layout: page
   body {
     background: #0d2b45;
   }
-  nav {
-  }
   article * {
-    /* color: #333 !important; */
     text-wrap: wrap;
     white-space: normal;
     word-wrap: break-word;
   }
 
   main {
-    max-width: calc(800px - 60px);
+    max-width: 940px;
     margin-right: auto;
     margin-left: auto;
     padding-top: 100px;
   }
 
+  header {
+    text-align: center;
+  }
   header h1 {
     font-weight: 600;
     margin-bottom: 4px;
-    font-size: 36px;
+    font-size: 2.2rem;
   }
   header p {
     margin-top: 0;
-    margin-bottom: 1rem;
     font-weight: 400;
     font-size: 18px;
   }
 
-  article p {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    /* color: #555; */
+  article h1 {
+    font-size: 2rem;
   }
   article h2 {
     font-size: 1.8rem;
-    margin-bottom: -1.2rem;
+    margin-top: 2rem;
+  }
+  article p,
+  article li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  article li {
+    margin-top: 4px;
+  }
+  article img {
+    max-width: 100%;
+  }
+  .img-wrapper {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .responsive-table {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .responsive-table table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .responsive-table th,
+    .responsive-table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    main {
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+    img {
+      max-width: 100% !important;
+    }
+  }
+  @media screen and (max-width: 440px) {
+    article h1 {
+      font-size: 1.6rem;
+    }
+    article h2 {
+      font-size: 1.4rem;
+    }
+    article p,
+    article li {
+      font-size: 0.8rem;
+    }
   }
 </style>
 <main>
   <article>
     <header>
       <h1>{{page.title}}</h1>
-      <p>{{page.date | date: "%B %-d, %Y" }}</p>
+      <p>Last Updated On: {{page.date | date: "%B %-d, %Y" }}</p>
     </header>
 
     {{content}}
