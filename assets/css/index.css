@@ -186,27 +186,19 @@ section h1 .highlight {
 }
 
 .blogs {
+  margin-top: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 1000px;
 }
-.blogs .arr {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  transform: rotate(90deg);
-  transition: 0.25s transform;
-}
 .blog {
   text-align: center;
   display: block;
-  text-decoration: none;
+  text-decoration: underline;
   width: 100%;
   background-color: var(--purple-background);
-  padding: 12px 22px;
+  padding: 12px 26px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
   cursor: url("./assets/cursors/pointer.png"), pointer;
@@ -216,12 +208,10 @@ section h1 .highlight {
   justify-content: center;
   transition: 0.25s opacity;
   position: relative;
+  margin-bottom: 2rem;
 }
 .blog:hover {
   opacity: 0.8;
-}
-.blog:hover .arr {
-  transform: rotate(45deg);
 }
 .blog * {
   margin-top: 0;
@@ -238,6 +228,24 @@ section h1 .highlight {
 .blog a {
   text-decoration: none;
   color: var(--text);
+}
+.blogs .all-wrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.blogs .all {
+  display: block;
+  background-color: var(--btn-primary);
+  text-decoration: none;
+  padding: 8px 24px;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: 0.25s;
+}
+.blogs .all:hover {
+  opacity: 0.8;
 }
 
 .cta {
@@ -437,6 +445,9 @@ section h1 .highlight {
 @media screen and (max-width: 425px) {
   .blog {
     padding: 12px 18px;
+  }
+  .blog h2 {
+    font-size: 18px;
   }
   .hero .actions {
     margin-top: 24px;

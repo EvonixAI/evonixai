@@ -201,23 +201,31 @@
           <a
             data-aos-duration="1300"
             class="{% if page.url == '/services' %}active{% endif %}"
-            href="services"
+            href="/services"
             >Services</a
           >
         </li>
         <li>
           <a
             data-aos-duration="1400"
-            class="{% if page.url == '/about' %}active{% endif %}"
-            href="about"
-            >About</a
+            class="{% if page.url contains '/blogs' %}active{% endif %}"
+            href="/blogs"
+            >Blogs</a
           >
         </li>
         <li>
           <a
             data-aos-duration="1500"
+            class="{% if page.url == '/about' %}active{% endif %}"
+            href="/about"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            data-aos-duration="1600"
             class="{% if page.url == '/contact' %}active{% endif %}"
-            href="contact"
+            href="/contact"
             >Contact</a
           >
         </li>

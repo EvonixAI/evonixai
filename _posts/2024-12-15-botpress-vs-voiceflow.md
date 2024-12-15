@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Botpress vs Voiceflow: Which is the Best Chatbot Builder for Your Business?"
+title: "Botpress vs Voiceflow"
 date: 2024-12-15
 categories: blogs
 ---

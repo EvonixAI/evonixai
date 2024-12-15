@@ -1,0 +1,48 @@
+---
+layout: page
+---
+
+<style>
+  main {
+    max-width: 800px;
+    padding: 90px 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+  .highlight {
+    color: var(--highlight-blue);
+  }
+
+  main a {
+    text-decoration: none;
+    text-align: center;
+  }
+  main a > h2 {
+    font-size: 28px;
+  }
+  main a > p {
+    margin-top: -12px;
+    text-decoration: none;
+    font-size: 22px;
+  }
+  main a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<main>
+  <h1>Our <span class="highlight">Blogs</span></h1>
+
+  <div>
+    {% for post in site.posts limit:3 %}
+    <a class="blog" href="{{ post.url }}">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.date | date: "%B %-d, %Y" }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</main>
