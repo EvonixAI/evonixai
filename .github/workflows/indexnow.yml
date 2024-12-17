@@ -1,0 +1,50 @@
+name: Notify IndexNow API
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Find updated HTML files
+      - name: Find updated HTML files
+        id: find_files
+        run: |
+          git fetch origin main
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.html$' > updated_files.txt || true
+          echo "Updated files:"
+          cat updated_files.txt
+
+      # 3. Submit updated URLs to IndexNow
+      - name: Submit URLs to IndexNow
+        env:
+          INDEXNOW_KEY: "9240d8cfca234848883349284778eee2"
+          DOMAIN: "https://evonixai.com"
+        run: |
+          URL_LIST=()
+          while IFS= read -r file; do
+            if [ -f "$file" ]; then
+              FULL_URL="$DOMAIN/$file"
+              echo "Adding $FULL_URL to list"
+              URL_LIST+=("\"$FULL_URL\"")
+            fi
+          done < updated_files.txt
+
+          # Convert array to JSON
+          JSON_BODY=$(jq -n --arg host "$DOMAIN" --arg key "$INDEXNOW_KEY" --arg keyLocation "$DOMAIN/$INDEXNOW_KEY.txt" --argjson urls "[${URL_LIST[*]}]" \
+          '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urls}')
+
+          echo "Submitting to IndexNow:"
+          echo "$JSON_BODY"
+
+          # Submit the request
+          curl -X POST "https://api.indexnow.org/indexnow" \
+               -H "Content-Type: application/json" \
+               -d "$JSON_BODY"
