@@ -1,0 +1,37 @@
+name: Notify IndexNow API
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Find updated or added files
+      - name: Find updated HTML files
+        id: find_files
+        run: |
+          git fetch origin main
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.html$' > updated_files.txt || true
+          echo "Updated files:"
+          cat updated_files.txt
+
+      # 3. Submit updated URLs to IndexNow API
+      - name: Submit URLs to IndexNow
+        env:
+          INDEXNOW_KEY: "9240d8cfca234848883349284778eee2" # Replace with your IndexNow key
+          DOMAIN: "https://evonixai.com" # Replace with your domain
+        run: |
+          while IFS= read -r file; do
+            if [ -f "$file" ]; then
+              URL="$DOMAIN/$file"
+              echo "Submitting $URL"
+              curl -X POST "https://api.indexnow.org/indexnow?url=$URL&key=$INDEXNOW_KEY"
+            fi
+          done < updated_files.txt
