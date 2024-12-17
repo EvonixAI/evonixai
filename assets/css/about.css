@@ -51,12 +51,12 @@ section {
   align-items: center;
   margin-bottom: 6rem;
 }
-.statements-wrapper > h1 {
+.statements-wrapper h2 {
   font-size: 36px;
   margin-bottom: 2rem;
   margin-top: 0;
 }
-.statement-wrapper h1 {
+.statement-wrapper h3 {
   font-size: 26px;
   margin-top: 0;
   margin-bottom: 6px;
@@ -111,7 +111,7 @@ section {
     -ms-filter: blur(15px);
     filter: blur(15px);
   }
-  section h1 .highlight {
+  .highlight {
     color: var(--highlight-lighter);
   }
   .hero .text h1 {
@@ -138,11 +138,12 @@ section {
     padding: 1.5rem 1.5rem;
   }
   .statement p,
-  .statement h1 {
+  .statement h3 {
     margin: 0;
   }
-  .statements-wrapper > h1 {
+  .statements-wrapper h2 {
     margin-bottom: 1rem;
+    font-size: 24px;
   }
   .hero .text h1 {
     font-size: 24px;
@@ -150,10 +151,7 @@ section {
   .hero .text p {
     font-size: 14px;
   }
-  .statements-wrapper > h1 {
-    font-size: 24px;
-  }
-  .statement h1 {
+  .statement h3 {
     font-size: 18px;
   }
   .statement p {
@@ -162,7 +160,8 @@ section {
 }
 @media screen and (max-width: 425px) {
   h1,
-  h2 {
+  h2,
+  h3 {
     text-align: center;
   }
 }
