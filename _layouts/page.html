@@ -238,11 +238,11 @@
         sessionStorage.getItem("navbar_anim_shown") === null &&
         !(window.innerWidth < 768)
       ) {
-        document.getElementById("logo").setAttribute("data-aos", "fade-right");
+        document.getElementById("logo").setAttribute("data-aos", "fade-in");
 
         const links = document.getElementById("nav-links");
         links.querySelectorAll("a").forEach((link) => {
-          link.setAttribute("data-aos", "fade-left");
+          link.setAttribute("data-aos", "fade-in");
         });
 
         sessionStorage.setItem("navbar_anim_shown", "true");
