@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Find updated or added files
+      # 2. Find updated HTML files
       - name: Find updated HTML files
         id: find_files
         run: |
@@ -22,16 +22,29 @@ jobs:
           echo "Updated files:"
           cat updated_files.txt
 
-      # 3. Submit updated URLs to IndexNow API
+      # 3. Submit updated URLs to IndexNow
       - name: Submit URLs to IndexNow
         env:
-          INDEXNOW_KEY: "9240d8cfca234848883349284778eee2" # Replace with your IndexNow key
-          DOMAIN: "https://evonixai.com" # Replace with your domain
+          INDEXNOW_KEY: "9240d8cfca234848883349284778eee2"
+          DOMAIN: "https://evonixai.com"
         run: |
+          URL_LIST=()
           while IFS= read -r file; do
             if [ -f "$file" ]; then
-              URL="$DOMAIN/$file"
-              echo "Submitting $URL"
-              curl -X POST "https://api.indexnow.org/indexnow?url=$URL&key=$INDEXNOW_KEY"
+              FULL_URL="$DOMAIN/$file"
+              echo "Adding $FULL_URL to list"
+              URL_LIST+=("\"$FULL_URL\"")
             fi
           done < updated_files.txt
+
+          # Convert array to JSON
+          JSON_BODY=$(jq -n --arg host "$DOMAIN" --arg key "$INDEXNOW_KEY" --arg keyLocation "$DOMAIN/$INDEXNOW_KEY.txt" --argjson urls "[${URL_LIST[*]}]" \
+          '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urls}')
+
+          echo "Submitting to IndexNow:"
+          echo "$JSON_BODY"
+
+          # Submit the request
+          curl -X POST "https://api.indexnow.org/indexnow" \
+               -H "Content-Type: application/json" \
+               -d "$JSON_BODY"
