@@ -52,22 +52,9 @@ url: /
       About <span class="highlight">Us</span>
     </h2>
     <p data-aos="fade-in" data-aos-duration="800">
-      At Evonix AI, we specialize in empowering businesses to unlock their full potential through the power of artificial intelligence. By leveraging cutting-edge AI technologies, we help companies streamline operations, enhance customer experiences, and drive sustainable growth. Whether you’re looking to automate sales processes, optimize marketing strategies, or improve overall business efficiency, we design tailored solutions that are customized to meet your unique needs.
+      At Evonix AI, we specialize in empowering businesses to unlock their full potential through the power of artificial intelligence. By leveraging cutting edge AI technologies, we help companies streamline operations, enhance customer experiences, and drive sustainable growth.
     </p>
     <div data-aos="fade-in" data-aos-duration="900" class="actions"><a href="about">Learn More</a></div>
-  </div>
-</section>
-
-<section class="services-section">
-  <div>
-    <h2 data-aos="fade-in" data-aos-duration="600">
-      Our <span class="highlight">Services</span>
-    </h2>
-
-    <p data-aos="fade-in" data-aos-duration="800">
-      Our services are designed to help businesses harness the transformative power of artificial intelligence. From automating workflows and optimizing marketing strategies to enhancing customer interactions and improving website performance, we deliver innovative solutions tailored to your specific needs. With our expertise, you can streamline operations, save time, and achieve measurable results that drive growth and success.
-    </p>
-    <div data-aos="fade-in" data-aos-duration="900" class="actions"><a href="services">Learn More</a></div>
   </div>
 </section>
 
@@ -98,6 +85,8 @@ url: /
       {% for post in site.posts limit:3 %}
         <a class="blog" href="{{ post.url }}">
           <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+          <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
         </a>
       {% endfor %}
     </div>

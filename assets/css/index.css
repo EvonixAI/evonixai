@@ -123,19 +123,20 @@ section h2 {
 
 .about,
 .services-section {
-  max-width: 1100px;
+  max-width: 1090px;
   padding: 0 2rem;
   margin-bottom: 5rem;
 }
 .about p,
 .services-section p {
-  font-size: 20px;
+  font-size: 26px;
 }
 .about a,
 .services-section a {
   background-color: var(--btn-primary);
   transition: 0.25s;
   font-size: 20px;
+  padding: 0.5rem 1.6rem;
 }
 .about a:hover,
 .services-section a:hover {
@@ -159,6 +160,14 @@ section h2 {
 .card {
   width: 330px;
   background-color: var(--purple-background);
+  background-image: linear-gradient(
+      rgba(13, 43, 69, 0.8),
+      rgba(13, 43, 69, 0.8)
+    ),
+    url("../img/card-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-bottom: 24px;
   padding: 18px 22px;
   padding-bottom: 22px;
@@ -195,16 +204,23 @@ section h2 {
   max-width: 1000px;
 }
 .blog {
-  text-align: center;
+  text-align: left;
   display: block;
-  text-decoration: underline;
+  text-decoration: none;
   width: 100%;
   background-color: var(--purple-background);
-  padding: 12px 26px;
+  background-image: linear-gradient(
+      rgba(13, 43, 69, 0.8),
+      rgba(13, 43, 69, 0.8)
+    ),
+    url("../img/card-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1.4rem 2rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-top: 24px;
-  cursor: url("./assets/cursors/pointer.png"), pointer;
-  height: 140px;
+  cursor: url("../cursors/pointer.png"), pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -214,6 +230,11 @@ section h2 {
 }
 .blog:hover {
   opacity: 0.8;
+}
+.blog .date {
+  margin-top: 0.8rem;
+  font-size: 16px;
+  text-align: right;
 }
 .blog * {
   margin-top: 0;
@@ -239,11 +260,11 @@ section h2 {
   display: block;
   background-color: var(--btn-primary);
   text-decoration: none;
-  padding: 8px 24px;
-  font-size: 24px;
   font-weight: 700;
   border-radius: 4px;
   transition: 0.25s;
+  font-size: 20px;
+  padding: 0.5rem 1.6rem;
 }
 .blogs .all:hover {
   opacity: 0.8;
@@ -272,7 +293,7 @@ section h2 {
 }
 .cta .talk {
   font-size: 20px;
-  padding: 8px 24px;
+  padding: 0.5rem 1.6rem;
 }
 .cta .talk:hover {
   opacity: 0.8 !important;
@@ -375,11 +396,16 @@ section h2 {
   }
 }
 @media screen and (max-width: 746px) {
-  .card h3 {
+  .card h3,
+  .blog h3 {
     font-size: 14px;
   }
-  .card p {
+  .card p,
+  .blog p {
     font-size: 12px;
+  }
+  .blog .date {
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 715px) {
@@ -445,10 +471,10 @@ section h2 {
 }
 @media screen and (max-width: 425px) {
   .blog {
-    padding: 12px 18px;
+    padding: 1rem 1rem;
   }
   .blog h3 {
-    font-size: 18px;
+    margin-bottom: 0.5rem;
   }
   .hero .actions {
     margin-top: 24px;
@@ -479,9 +505,6 @@ section h2 {
   }
   .about p,
   .services-section p {
-    font-size: 16px;
-  }
-  .blog p {
     font-size: 16px;
   }
   .cta .talk {

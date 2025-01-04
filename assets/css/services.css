@@ -18,7 +18,7 @@ h1 {
 .quick-access {
   background-color: #555b9e;
   padding: 0.8rem 2rem;
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
   margin-bottom: 3rem;
   position: sticky;
   top: 80px;

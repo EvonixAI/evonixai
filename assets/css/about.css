@@ -74,6 +74,16 @@ section {
 }
 .statement {
   background-color: var(--purple-background);
+  background-image: linear-gradient(
+      rgba(13, 43, 69, 0.8),
+      rgba(13, 43, 69, 0.8)
+    ),
+    url("../img/card-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
   padding: 2rem 2rem;
   border-radius: 4px;
 }
@@ -153,6 +163,7 @@ section {
   }
   .statement h3 {
     font-size: 18px;
+    margin-bottom: 6px;
   }
   .statement p {
     font-size: 14px;

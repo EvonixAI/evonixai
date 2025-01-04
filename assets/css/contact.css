@@ -86,6 +86,7 @@ main {
 
 /* Button styling */
 .contact-form #submit {
+  font-weight: 600;
   margin-top: 2rem;
   padding: 12px;
   background-color: var(--btn-primary); /* Blue button background */
@@ -113,10 +114,10 @@ main {
 
 .popup {
   position: fixed;
-  top: -50px; /* Start off-screen */
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #339636; /* Success color */
+  background-color: var(--purple-background);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
