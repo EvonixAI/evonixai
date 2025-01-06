@@ -3,3 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+roi-calculator.html
+roi-calculator.css
+delete.svg
